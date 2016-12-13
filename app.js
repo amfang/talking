@@ -37,7 +37,7 @@ app.use (express.static("./public"));
 var conversation = watson.conversation ( {
   username: process.env.CONVERSATION_USERNAME || '<username>',
   password: process.env.CONVERSATION_PASSWORD || '<password>',
-  url: 'https://gateway.watsonplatform.net/conversation/api',
+  //url: 'https://gateway.watsonplatform.net/conversation/api',
   version_date: '2016-10-21',
   version: 'v1'
 } );
