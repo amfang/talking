@@ -31,7 +31,7 @@ var app = express ();
 //app.use ( compression () );
 app.use ( bodyParser.json () );
 //static folder containing UI
-app.use ( express.static ( __dirname + "/dist" ) );
+app.use (express.static("./public"));
 
 // Create the service wrapper
 var conversation = watson.conversation ( {
