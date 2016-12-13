@@ -34,14 +34,15 @@ app.use ( bodyParser.json () );
 app.use ( express.static ( __dirname + "/dist" ) );
 
 // Create the service wrapper
-/*var conversation = watson.conversation ( {
+var conversation = watson.conversation ( {
   username: process.env.CONVERSATION_USERNAME || '<username>',
   password: process.env.CONVERSATION_PASSWORD || '<password>',
-  version_date: '2016-07-11',
+  url: 'https://gateway.watsonplatform.net/conversation/api',
+  version_date: '2016-10-21',
   version: 'v1'
 } );
-*/
-var conversation = new watson({
+
+/*var conversation = new watson({
   // If unspecified here, the CONVERSATION_USERNAME and CONVERSATION_PASSWORD env properties will be checked
   // After that, the SDK will fall back to the bluemix-provided VCAP_SERVICES environment property
   // username: '<username>',
@@ -50,7 +51,7 @@ var conversation = new watson({
   version_date: '2016-10-21',
   version: 'v1'
 });
-
+ */
 // Endpoint to be call from the client side
 app.post ( '/api/message', function (req, res) {
   if ( !workspace_id || workspace_id === '<workspace-id>' ) {
