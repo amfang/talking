@@ -18,7 +18,7 @@
 
 var express = require('express'); // app server
 var bodyParser = require('body-parser'); // parser for post requests
-var Conversation = require('watson-developer-cloud/conversation/v1'); // watson sdk
+var watson = require('watson-developer-cloud/conversation/v1'); // watson sdk
 
 var app = express();
 
@@ -27,11 +27,10 @@ app.use(express.static('./public')); // load UI from public folder
 app.use(bodyParser.json());
 
 // Create the service wrapper
-var conversation = new Conversation({
-  // If unspecified here, the CONVERSATION_USERNAME and CONVERSATION_PASSWORD env properties will be checked
-  // After that, the SDK will fall back to the bluemix-provided VCAP_SERVICES environment property
-  // username: '<username>',
-  // password: '<password>',
+// Create the service wrapper
+var conversation = watson.conversation ( {
+  username: process.env.CONVERSATION_USERNAME || '<username>',
+  password: process.env.CONVERSATION_PASSWORD || '<password>',
   url: 'https://gateway.watsonplatform.net/conversation/api',
   version_date: '2016-10-21',
   version: 'v1'
