@@ -28,7 +28,7 @@ var logs = null;
 
 var app = express ();
 
-app.use ( compression () );
+//app.use ( compression () );
 app.use ( bodyParser.json () );
 //static folder containing UI
 app.use ( express.static ( __dirname + "/dist" ) );
