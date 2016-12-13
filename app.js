@@ -25,6 +25,7 @@ var watson = require ( 'watson-developer-cloud' );
 //The conversation workspace id
 var workspace_id = process.env.WORKSPACE_ID || '<workspace_id>';
 //var logs = null;
+console.log("workspace_id"+workspace_id);
 
 var app = express ();
 
