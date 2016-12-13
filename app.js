@@ -22,22 +22,22 @@ var compression = require ( 'compression' );
 var bodyParser = require ( 'body-parser' );  // parser for post requests
 var watson = require ( 'watson-developer-cloud' );
 //The following requires are needed for logging purposes
-var uuid = require ( 'uuid' );
+/*var uuid = require ( 'uuid' );
 var csv = require ( 'express-csv' );
 var vcapServices = require ( 'vcap_services' );
 var basicAuth = require ( 'basic-auth-connect' );
-
+*/
 //The app owner may optionally configure a cloudand db to track user input.
 //This cloudand db is not required, the app will operate without it.
 //If logging is enabled the app must also enable basic auth to secure logging
 //endpoints
-var cloudantCredentials = vcapServices.getCredentials ( 'cloudantNoSQLDB' );
+/*var cloudantCredentials = vcapServices.getCredentials ( 'cloudantNoSQLDB' );
 var cloudantUrl = null;
 if ( cloudantCredentials ) {
   cloudantUrl = cloudantCredentials.url;
 }
 cloudantUrl = cloudantUrl || process.env.CLOUDANT_URL; // || '<cloudant_url>';
-
+*/
 //The conversation workspace id
 var workspace_id = process.env.WORKSPACE_ID || '<workspace_id>';
 var logs = null;
@@ -101,7 +101,7 @@ app.post ( '/api/message', function (req, res) {
   } );
 } );
 
-
+/*
 if ( cloudantUrl ) {
   //If logging has been enabled (as signalled by the presence of the cloudantUrl) then the
   //app developer must also specify a LOG_USER and LOG_PASS env vars.
@@ -186,7 +186,7 @@ if ( cloudantUrl ) {
     } );
   } );
 }
-
+*/
 app.use ( '/api/speech-to-text/', require ( './speech/stt-token.js' ) );
 app.use ( '/api/text-to-speech/', require ( './speech/tts-token.js' ) );
 
