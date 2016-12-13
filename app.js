@@ -95,7 +95,7 @@ function updateMessage(input, response) {
   return response;
 }
 
-app.use ( '/api/speech-to-text/', require ( './speech/stt-token.js' ) );
-app.use ( '/api/text-to-speech/', require ( './speech/tts-token.js' ) );
+//app.use ( '/api/speech-to-text/', require ( './speech/stt-token.js' ) );
+//app.use ( '/api/text-to-speech/', require ( './speech/tts-token.js' ) );
 
 module.exports = app;
