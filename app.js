@@ -23,7 +23,7 @@ var watson = require('watson-developer-cloud/conversation/v1'); // watson sdk
 var app = express();
 
 // Bootstrap application settings
-app.use(express.static('./public')); // load UI from public folder
+app.use(express.static(__dirname+'/public')); // load UI from public folder
 app.use(bodyParser.json());
 
 // Create the service wrapper
@@ -58,7 +58,8 @@ app.post('/api/message', function(req, res) {
       return res.status(err.code || 500).json(err);
     }
     console.log('request : payload; response: '+ data +'; time: '+new Date ());
-    return res.json(updateMessage(payload, data));
+    return res.json(data);
+        //updateMessage(payload, data));
   });
 });
 
@@ -67,7 +68,7 @@ app.post('/api/message', function(req, res) {
  * @param  {Object} input The request to the Conversation service
  * @param  {Object} response The response from the Conversation service
  * @return {Object}          The response with the updated message
- */
+
 function updateMessage(input, response) {
   var responseText = null;
   if (!response.output) {
@@ -93,6 +94,7 @@ function updateMessage(input, response) {
   response.output.text = responseText;
   return response;
 }
+ */
 
 app.use ( '/api/speech-to-text/', require ( './speech/stt-token.js' ) );
 app.use ( '/api/text-to-speech/', require ( './speech/tts-token.js' ) );
