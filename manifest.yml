@@ -17,5 +17,6 @@ applications:
   instances: 1
   disk_quota: 1024M
   services:
+  - my-conversation-service
   env:
     NPM_CONFIG_PRODUCTION: false
